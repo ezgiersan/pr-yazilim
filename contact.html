@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body class="h-screen">
+    <!--HEADER START -->
+    <div class="fixed w-full">
+      <div
+        class="bg-white h-20 border-b flex justify-between px-4 md:justify-around items-center"
+      >
+        <img src="./images/Logo.png" />
+        <div class="hidden justify-between items-center md:flex">
+          <span class="text-nav-item p-2">Home</span>
+          <div
+            class="flex items-center mx-5 p-2 cursor-pointer nav-item"
+            onclick="ToggleNavDropdown(this)"
+          >
+            <span class="text-nav-item me-1">Resources</span>
+            <img
+              src="./images/down-icon.png"
+              class="text-nav-item w-2.5 h-[5px]"
+            />
+          </div>
+          <span class="text-nav-item p-2">Pricing</span>
+        </div>
+        <a
+          href="/contact.html"
+          class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-4 hover:no-underline hidden md:flex text-sm w-[122px]"
+        >
+          Contact Us
+        </a>
+        <div class="md:hidden block" onclick="NavMenu()">
+          <img src="./images/_Nav menu button.png" />
+        </div>
+        <div
+          class="hidden absolute top-20 bg-white dropdown-shadow w-full py-6 left-0"
+          id="nav-menu"
+        >
+          <div class="">
+            <div class="text-nav-item py-3 px-4">Home</div>
+            <div
+              class="flex items-center justify-between cursor-pointer nav-item py-3 px-4"
+              onclick="ResourcesDropdown()"
+            >
+              <span class="text-nav-item">Resources</span>
+              <img
+                src="./images/down-icon.png"
+                class="text-nav-item w-2.5 h-[5px]"
+              />
+            </div>
+            <div
+              class="grid grid-rows-5 gap-2 px-6 bg-white hidden"
+              id="resources-dropdown"
+            >
+              <div class="flex items-center">
+                <div>
+                  <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                    <img src="./images/flag.png" class="text-purple" />
+                  </div>
+                </div>
+                <div>
+                  <p class="text-gray900 mb-0">About Us</p>
+                  <p class="text-sm text-nav-item">
+                    Learn about our story and our mission statement.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div>
+                  <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                    <img src="./images/Icon.png" class="text-purple" />
+                  </div>
+                </div>
+                <div>
+                  <p class="text-gray900 mb-0">Press</p>
+                  <p class="text-sm text-nav-item">
+                    News and writings, press releases, and resources.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div>
+                  <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                    <img src="./images/users.png" class="text-purple" />
+                  </div>
+                </div>
+                <div>
+                  <p class="text-gray900 mb-0">Careers</p>
+                  <p class="text-sm text-nav-item">
+                    We’re always looking for talented people. Join us!
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div>
+                  <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                    <img src="./images/folder.png" class="text-purple" />
+                  </div>
+                </div>
+                <div>
+                  <p class="text-gray900 mb-0">Legal</p>
+                  <p class="text-sm text-nav-item">
+                    All the boring stuff that we Dan from legal made us add.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="h-[80px] bg-badge-light-purple flex items-center justify-center"
+              >
+                <p class="text-purple font-medium">
+                  Looking for a new career? Get in touch
+                </p>
+              </div>
+            </div>
+
+            <div class="text-nav-item py-3 px-4">Pricing</div>
+            <div class="py-3 px-4 w-full">
+              <button
+                onclick="window.location.href='/contact.html'"
+                class="rounded-lg bg-[#7F56D9] text-white py-2.5 px-5 hover:no-underline w-full"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Dropdown -->
+      <div class="dropdown-shadow hidden absolute top-[5rem]" id="targetDiv">
+        <div class="grid grid-cols-4 gap-4 py-8 px-6 bg-white">
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/flag.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">About Us</p>
+              <p class="text-sm text-nav-item">
+                Learn about our story and our mission statement.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/Icon.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">Press</p>
+              <p class="text-sm text-nav-item">
+                News and writings, press releases, and resources.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/users.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">Careers</p>
+              <p class="text-sm text-nav-item">
+                We’re always looking for talented people. Join us!
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/folder.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">Legal</p>
+              <p class="text-sm text-nav-item">
+                All the boring stuff that we Dan from legal made us add.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-[80px] bg-badge-light-purple flex items-center justify-center"
+        >
+          <p class="text-purple font-medium">
+            Looking for a new career? Get in touch
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER END -->
+
+    <!-- STEPS -->
+    <div class="flex flex-col items-center justify-center pt-[10rem] p-6">
+      <div
+        class="flex items-center bg-icon-bg-light-purple rounded-2xl pt-1 pb-1 ps-1 pe-2.5 grid gap-4 grid-cols-3 transition duration-300 ease-linear"
+      >
+        <div
+          class="py-1 px-2.5 rounded-2xl selectedTab flex justify-around items-center transition duration-300 ease-linear"
+          id="step-1"
+        >
+          <span class="text-sm rounded-2xl">Step 1</span>
+          <img
+            src="./images/check.png"
+            id="check-icon-1"
+            class="text-purple w-3.5 h-3.5 hidden ms-2 duration-300 ease-linear"
+          />
+        </div>
+
+        <div
+          class="py-1 px-2.5 rounded-2xl flex justify-around items-center text-purple transition duration-300 ease-linear"
+          id="step-2"
+        >
+          <span class="text-sm rounded-2xl">Step 2</span>
+          <img
+            src="./images/check.png"
+            id="check-icon-2"
+            class="text-purple w-3.5 h-3.5 hidden ms-2 duration-300 ease-linear"
+          />
+        </div>
+
+        <div
+          class="py-1 px-2.5 rounded-2xl text-purple transition duration-300 ease-linear flex justify-around items-center"
+          id="step-3"
+        >
+          <span class="text-sm rounded-2xl">Success</span>
+        </div>
+      </div>
+
+      <div class="sm:w-[406px] mt-5" id="step-div-1">
+        <p class="text-sm text-gray700">
+          What kind of plan is most suitable for you?
+        </p>
+        <div class="gap-3 grid grid-rows-3">
+          <div
+            class="p-3 rounded-lg border-gray300 flex cursor-pointer selected"
+            onclick="SelectStep(1)"
+            id="step1"
+          >
+            <img src="./images/user.png" class="w-6 h-6 me-2 selected-img" />
+            <div>
+              <p class="text-base text-purple mb-0">Individual</p>
+              <p class="text-sm text-nav-item">
+                For individual designer and developer.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="p-3 rounded-lg border border-gray300 flex cursor-pointer"
+            onclick="SelectStep(2)"
+            id="step2"
+          >
+            <img src="./images/Frame.png" class="w-6 h-6 me-2" />
+            <div>
+              <p class="text-base text-gray700 mb-0">Team</p>
+              <p class="text-sm text-nav-item">
+                For small team of designers and developers.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="p-3 rounded-lg border border-gray300 flex cursor-pointer"
+            onclick="SelectStep(3)"
+            id="step3"
+          >
+            <img src="./images/frame2.png" class="w-6 h-6 me-2" />
+            <div>
+              <p class="text-base text-gray700 mb-0">Corporate</p>
+              <p class="text-sm text-nav-item">
+                For larger design and development teams.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="bg-purple text-white w-full mt-3 text-base py-2.5 px-[18px] rounded-lg"
+          onclick="NextStep(2)"
+          id="nextStepBtn"
+        >
+          Next Step
+        </button>
+      </div>
+      <div class="sm:w-[406px] mt-5 hidden" id="step-div-2">
+        <form class="grid gap-4" onsubmit="event.preventDefault();">
+          <div>
+            <label class="text-gray700 text-sm" for="name">Name Surname</label
+            ><br />
+            <input
+              class="border border-gray300 py-2.5 px-3.5 rounded-lg w-full focus:border-purple hover:border-indigo-500 focus:shadow-outline-purple"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+            /><br />
+          </div>
+          <div>
+            <label class="text-gray700 text-sm" for="phone">Phone Number</label
+            ><br />
+            <div class="flex items-center grid grid-cols-3 gap-x-2">
+              <div
+                class="border border-gray300 py-2.5 px-3.5 rounded-lg flex items-center justify-between"
+              >
+                <img src="./images/rounded-flag.png" class="" />
+                <span>+90</span>
+                <img src="./images/down-icon.png" class="" />
+              </div>
+              <input
+                class="border border-gray300 py-2.5 px-3.5 rounded-lg col-span-2"
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="(---) --- -- --"
+              /><br />
+            </div>
+          </div>
+          <div>
+            <label class="text-gray700 text-sm" for="email">E-mail</label><br />
+            <input
+              class="border border-gray300 py-2.5 px-3.5 rounded-lg w-full"
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+            /><br />
+          </div>
+          <div>
+            <label class="text-gray700 text-sm" for="message">Message</label
+            ><br />
+            <input
+              class="border border-gray300 py-2.5 px-3.5 rounded-lg w-full h-32"
+              type="textarea"
+              id="message"
+              name="message"
+              placeholder="Include a message..."
+            />
+          </div>
+          <div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="policy"
+                name="policy"
+                value="policy"
+                class="w-5 h-5 border border-purple me-2"
+              />
+
+              <button class="text-nev-item" onclick="openModal()">
+                You agree to our friendly
+                <span class="underline">privacy policy</span>.
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-5 mt-4">
+              <button
+                class="rounded-lg border-inherit border rounded-lg py-2.5 px-5 mr-4 shadow-btn"
+              >
+                Back
+              </button>
+              <button
+                class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-5"
+                onclick="NextStep(3)"
+                id="nextStepBtn2"
+              >
+                Complete
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal Container -->
+      <div
+        id="modal"
+        class="fixed flex inset-0 hidden justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 bg-black bg-opacity-50"
+      >
+        <div class="relative w-auto my-6 mx-auto max-w-3xl transform">
+          <!-- Modal Content -->
+          <div class="bg-white w-full p-6 rounded-xl shadow-lg">
+            <!-- Close Button -->
+
+            <!-- Modal Content Goes Here -->
+            <p class="text-lg font-medium text-gray900 mb-2">Privacy Policy</p>
+            <p class="font-normal text-sm text-nav-item">
+              Your privacy is important to us. We respect your privacy regarding
+              any information we may collect from you across our website.
+            </p>
+            <div
+              class="pt-4 pe-6 pb-4 ps-4 rounded-lg border border-modal-border h-[378px] scroll-smooth overflow-y-auto"
+            >
+              <p class="text-nav-item font-normal text-sm">
+                Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
+                suspendisse morbi eleifend faucibus eget vestibulum felis.
+                Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam.
+                Mauris posuere vulputate arcu amet, vitae nisi, tellus
+                tincidunt. At feugiat sapien varius id.
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Eget quis mi enim, leo lacinia pharetra, semper. Eget in
+                volutpat mollis at volutpat lectus velit, sed auctor. Porttitor
+                fames arcu quis fusce augue enim. Quis at habitant diam at.
+                Suscipit tristique risus, at donec. In turpis vel et quam
+                imperdiet. Ipsum molestie aliquet sodales id est ac volutpat.
+              </p>
+              <p class="text-lg font-medium text-gray900">
+                What information do we collect?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum,
+                nulla odio nisl vitae. In aliquet pellentesque aenean hac
+                vestibulum turpis mi bibendum diam. Tempor integer aliquam in
+                vitae malesuada fringilla.
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Elit nisi in eleifend sed nisi. Pulvinar at orci, proin
+                imperdiet commodo consectetur convallis risus. Sed condimentum
+                enim dignissim adipiscing faucibus consequat, urna. Viverra
+                purus et erat auctor aliquam. Risus, volutpat vulputate posuere
+                purus sit congue convallis aliquet. Arcu id augue ut feugiat
+                donec porttitor neque. Mauris, neque ultricies eu vestibulum,
+                bibendum quam lorem id. Dolor lacus, eget nunc lectus in tellus,
+                pharetra, porttitor.
+              </p>
+
+              <p class="text-lg font-medium text-gray900">
+                How do we use your information?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum,
+                nulla odio nisl vitae. In aliquet pellentesque aenean hac
+                vestibulum turpis mi bibendum diam. Tempor integer aliquam in
+                vitae malesuada fringilla.
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Elit nisi in eleifend sed nisi. Pulvinar at orci, proin
+                imperdiet commodo consectetur convallis risus. Sed condimentum
+                enim dignissim adipiscing faucibus consequat, urna. Viverra
+                purus et erat auctor aliquam. Risus, volutpat vulputate posuere
+                purus sit congue convallis aliquet. Arcu id augue ut feugiat
+                donec porttitor neque. Mauris, neque ultricies eu vestibulum,
+                bibendum quam lorem id. Dolor lacus, eget nunc lectus in tellus,
+                pharetra, porttitor.
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim
+                mauris id. Non pellentesque congue eget consectetur turpis.
+                Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt
+                aenean tempus. Quis velit eget ut tortor tellus. Sed vel, congue
+                felis elit erat nam nibh orci.
+              </p>
+
+              <p class="text-lg font-medium text-gray900">
+                Do we use cookies and other tracking technologies?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Pharetra morbi libero id aliquam elit massa integer tellus. Quis
+                felis aliquam ullamcorper porttitor. Pulvinar ullamcorper sit
+                dictumst ut eget a, elementum eu. Maecenas est morbi mattis id
+                in ac pellentesque ac.
+              </p>
+
+              <p class="text-lg font-medium text-gray900">
+                How long do we keep your information?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Pharetra morbi libero id aliquam elit massa integer tellus. Quis
+                felis aliquam ullamcorper porttitor. Pulvinar ullamcorper sit
+                dictumst ut eget a, elementum eu. Maecenas est morbi mattis id
+                in ac pellentesque ac.
+              </p>
+
+              <p class="text-lg font-medium text-gray900">
+                How do we keep your information safe?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Pharetra morbi libero id aliquam elit massa integer tellus. Quis
+                felis aliquam ullamcorper porttitor. Pulvinar ullamcorper sit
+                dictumst ut eget a, elementum eu. Maecenas est morbi mattis id
+                in ac pellentesque ac.
+              </p>
+
+              <p class="text-lg font-medium text-gray900">
+                What are your privacy rights?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Pharetra morbi libero id aliquam elit massa integer tellus. Quis
+                felis aliquam ullamcorper porttitor. Pulvinar ullamcorper sit
+                dictumst ut eget a, elementum eu. Maecenas est morbi mattis id
+                in ac pellentesque ac.
+              </p>
+
+              <p class="text-lg font-medium text-gray900">
+                How can you contact us about this policy?
+              </p>
+              <p class="text-nav-item font-normal text-sm">
+                Sagittis et eu at elementum, quis in. Proin praesent volutpat
+                egestas sociis sit lorem nunc nunc sit. Eget diam curabitur mi
+                ac. Auctor rutrum lacus malesuada massa ornare et. Vulputate
+                consectetur ac ultrices at diam dui eget fringilla tincidunt.
+                Arcu sit dignissim massa erat cursus vulputate gravida id. Sed
+                quis auctor vulputate hac elementum gravida cursus dis.
+              </p>
+
+              <ol
+                start="1"
+                class="text-nav-item font-normal text-sm list-decimal list"
+              >
+                <li>Lectus id duis vitae porttitor enim gravida morbi.</li>
+                <li>
+                  Eu turpis posuere semper feugiat volutpat elit, ultrices
+                  suspendisse. Auctor vel in vitae placerat.
+                </li>
+                <li>
+                  Suspendisse maecenas ac donec scelerisque diam sed est duis
+                  purus.
+                </li>
+              </ol>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 mt-4">
+              <button
+                id="closeModal"
+                onclick="closeModal()"
+                class="rounded-lg border-inherit border rounded-lg py-2.5 px-5 sm:mr-4 shadow-btn sm:mb-0 mb-3 w-full sm:w-auto h-12 flex items-center justify-center"
+              >
+                Cancel
+              </button>
+              <button
+                id="closeModal"
+                onclick="closeModal()"
+                class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-5 hover:no-underline w-full sm:w-auto h-12"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="sm:w-[406px] mt-5 hidden flex flex-col items-center"
+        id="step-div-3"
+      >
+        <img src="./images/Frame 11.png" class="text-center mb-4" />
+        <p class="text-3xl font-semibold text-center text-gray900">
+          Thanks for reaching us!
+        </p>
+        <p class="text-light-gray font-normal text-sm text-center">
+          Your message sent. We’ll contact back with you soon!
+        </p>
+        <a
+          href="/index.html"
+          class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-5 w-full text-center hover:no-underline"
+          >Back to Home</a
+        >
+      </div>
+    </div>
+    <!-- STEPS -->
+    <script src="./app.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

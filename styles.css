@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.icon-badge {
+  width: fit-content;
+}
+.shadow-btn {
+  box-shadow: 0px 1px 2px 0px #1018280d;
+}
+.accordion {
+  width: 768px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #eaecf0;
+  margin-bottom: 8px;
+}
+
+.accordion-header {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+.dropdown-shadow {
+  box-shadow: 0px 4px 6px -2px #10182808;
+box-shadow: 0px 12px 16px -4px #10182814;
+
+}
+.hidden {
+    display: none;
+  }
+  .nav-item.active {
+    background-color: #F2F4F7;
+    border-radius: 8px;
+  }
+  .selected {
+    border: 1px solid #7F56D9;
+    background-color: #faf5ff;
+    transition: all 0.7s ease;
+}
+.selectedTab{
+    color: #fff;
+    background-color: #7F56D9;
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .slide-up {
+    transform: translateY(10px);
+    transition: transform 0.5s ease-out;
+  }
+  
+  .slide-down {
+    transform: translateY(0);
+    transition: transform 0.5s ease-out;
+  }
+  .selected-img{
+    filter: brightness(0) saturate(100%) invert(38%) sepia(63%) saturate(683%) hue-rotate(218deg) brightness(95%) contrast(94%);
+  }
+  .list{
+    padding-left: inherit;
+  }
+  

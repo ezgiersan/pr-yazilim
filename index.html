@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--HEADER START -->
+    <div class=" fixed w-full ">
+        <div class="bg-white h-20 border-b flex justify-between px-4 md:justify-around items-center ">
+      <img src="./images/Logo.png" />
+      <div class="hidden justify-between items-center md:flex">
+        <span class="text-nav-item p-2">Home</span>
+        <div
+          class="flex items-center mx-5 p-2 cursor-pointer nav-item"
+          onclick="ToggleNavDropdown(this)"
+        >
+          <span class="text-nav-item me-1 ">Resources</span>
+          <img
+            src="./images/down-icon.png"
+            class="text-nav-item w-2.5 h-[5px]"
+          />
+        </div>
+        <span class="text-nav-item p-2">Pricing</span>
+      </div>
+      <a
+      href="/contact.html"
+      class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-4 hover:no-underline hidden md:flex text-sm w-[122px]"
+      >
+      Contact Us
+    </a>
+    <div class="md:hidden block" onclick="NavMenu()">
+        <img src="./images/_Nav menu button.png" />
+    </div>
+    <div class="hidden absolute top-20 bg-white dropdown-shadow w-full py-6 left-0" id="nav-menu">
+        <div class="">
+            <div class="text-nav-item py-3 px-4">Home</div>
+            <div
+              class="flex items-center justify-between  cursor-pointer nav-item py-3 px-4"
+              onclick="ResourcesDropdown()"
+            >
+              <span class="text-nav-item ">Resources</span>
+              <img
+                src="./images/down-icon.png"
+                class="text-nav-item w-2.5 h-[5px]"
+              />
+            </div>
+            <div class="grid grid-rows-5 gap-2 px-6 bg-white hidden" id="resources-dropdown">
+                <div class="flex items-center">
+                  <div>
+                    <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                      <img src="./images/flag.png" class="text-purple" />
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-gray900 mb-0">About Us</p>
+                    <p class="text-sm text-nav-item">
+                      Learn about our story and our mission statement.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div>
+                    <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                      <img src="./images/Icon.png" class="text-purple" />
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-gray900 mb-0">Press</p>
+                    <p class="text-sm text-nav-item">
+                      News and writings, press releases, and resources.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div>
+                    <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                      <img src="./images/users.png" class="text-purple" />
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-gray900 mb-0">Careers</p>
+                    <p class="text-sm text-nav-item">
+                      We’re always looking for talented people. Join us!
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div>
+                    <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                      <img src="./images/folder.png" class="text-purple" />
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-gray900 mb-0">Legal</p>
+                    <p class="text-sm text-nav-item">
+                      All the boring stuff that we Dan from legal made us add.
+                    </p>
+                  </div>
+                </div>
+                <div
+                class="h-[80px] bg-badge-light-purple flex items-center justify-center"
+              >
+                <p class="text-purple font-medium">
+                  Looking for a new career? Get in touch
+                </p>
+              </div>
+              </div>
+
+            <div class="text-nav-item py-3 px-4">Pricing</div>
+            <div class="py-3 px-4 w-full">
+                <button
+                onclick="window.location.href='/contact.html'"
+                  class="rounded-lg bg-[#7F56D9] text-white py-2.5 px-5 hover:no-underline w-full"
+                >
+                  Contact Us
+                </button>
+              </div>
+              
+          </div>
+    </div>
+    </div>
+      <!-- Dropdown -->
+      <div class="dropdown-shadow hidden absolute top-[5rem]" id="targetDiv">
+        <div class="grid md:grid-cols-4 grid-cols-2 gap-4 py-8 px-6 bg-white">
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/flag.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">About Us</p>
+              <p class="text-sm text-nav-item">
+                Learn about our story and our mission statement.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/Icon.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">Press</p>
+              <p class="text-sm text-nav-item">
+                News and writings, press releases, and resources.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/users.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">Careers</p>
+              <p class="text-sm text-nav-item">
+                We’re always looking for talented people. Join us!
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div>
+              <div class="rounded-full p-3 bg-dropdown-icon w-12 h-12 me-2">
+                <img src="./images/folder.png" class="text-purple" />
+              </div>
+            </div>
+            <div>
+              <p class="text-gray900 mb-0">Legal</p>
+              <p class="text-sm text-nav-item">
+                All the boring stuff that we Dan from legal made us add.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-[80px] bg-badge-light-purple flex items-center justify-center"
+        >
+          <p class="text-purple font-medium">
+            Looking for a new career? Get in touch
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER END -->
+    <!-- HERO SECTION START-->
+    <div
+      class="bg-contain bg-no-repeat flex justify-center sm:py-16 sm:px-12 px-6 py-16 md:h-[952px] bg-center bg-none md:bg-[url('/images/bg-img.png')]"
+
+    >
+      <div class="max-w-screen-lg flex items-center flex-col mt-24 ">
+        <div
+          class="bg-badge-light-purple grid grid-cols-3 gap-1 flex items-center rounded-2xl pt-1 pl-1 pb-1 pr-2.5 mb-2"
+        >
+          <span
+            class=" text-purple bg-white rounded-2xl text-xs sm:text-sm py-0.5 px-2.5 font-normal text-center"
+            >New feature</span
+          >
+          <span class=" text-purple text-xs sm:text-sm gap-1 col-span-2 font-normal flex items-center"
+            >Check out the team dashboard
+            <img src="./images/arrow.png" />
+            </span>
+        </div>
+
+        <p class="font-semibold text-6xl text-center text-gray900 mb-4">
+          Beautiful analytics to grow smarter
+        </p>
+        <p class="text-center text-nav-item max-w-[768px]">
+          Powerful, self-serve product and growth analytics to help you convert,
+          engage, and retain more users. Trusted by over 4,000 startups.
+        </p>
+      
+        <div class="sm:flex block justify-center mt-9 w-full">
+            <button
+              class="rounded-lg border-inherit border rounded-lg py-2.5 px-5 sm:mr-4 shadow-btn sm:mb-0 mb-3 w-full sm:w-auto h-12 flex items-center justify-center"
+            >
+            <img src="./images/play-circle.png" class="me-1"/>
+            Demo
+            </button>
+            <button
+            onclick="window.location.href='/contact.html'"
+            class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-5 hover:no-underline  w-full sm:w-auto h-12"
+          >
+            Contact Us
+          </button>
+          </div> 
+      </div>
+    </div>
+    <!-- HERO SECTION END-->
+
+    <!-- SOCIAL PROOF SECTİON START -->
+    <div class="md:py-20 ms:px-24 px-6 py-16">
+      <p class="text-nav-item text-center">
+        Join 4,000+ companies already growing
+      </p>
+      <div class="items-center justify-between mt-6 touch-pan-x flex overflow-x-auto p-4 space-x-4">
+        <div class="flex items-center min-w-[150px]">
+          <img class="w-11 h-11" src="./images/Logomark1.png" />
+          <span class="text-2xl ms-2">Layers</span>
+        </div>
+        <div class="flex items-center min-w-[150px]">
+          <img class="w-11 h-11" src="./images/Logomark2.png" />
+          <span class="text-2xl ms-2">Sisyphus</span>
+        </div>
+        <div class="flex items-center min-w-[150px]">
+          <img class="w-11 h-11" src="./images/Logomark3.png" />
+          <span class="text-2xl ms-2">Circooles</span>
+        </div>
+        <div class="flex items-center min-w-[150px]">
+          <img class="w-11 h-11" src="./images/Logomark4.png" />
+          <span class="text-2xl ms-2">Catalog</span>
+        </div>
+        <div class="flex items-center min-w-[150px]">
+          <img class="w-11 h-11" src="./images/Logomark5.png" />
+          <span class="text-2xl ms-2">Quotient</span>
+        </div>
+      </div>
+    </div>
+    <!-- SOCIAL PROOF SECTİON END -->
+
+    <!-- FEATURES SECTİON START -->
+    <div>
+      <div class="grid  grid-cols-1 md:px-20 md:py-24 py-16 px-6">
+        <div class="col-span-4 flex flex-col items-center">
+          <p class="text-purple text-center">Features</p>
+          <p class="text-gray900 text-4xl text-center font-semibold">
+            Analytics that feels like it’s from the future
+          </p>
+          <p class="text-nav-item text-xl font-normal text-center max-w-[842px]">
+            Powerful, self-serve product and growth analytics to help you
+            convert, engage, and retain more users. Trusted by over 4,000
+            startups.
+          </p>
+        </div>
+
+        <div class="grid gap-5 grid-cols-1 md:grid-cols-3 mt-8">
+          <div class="flex flex-col items-center">
+            <div
+              class="bg-icon-bg-light-purple p-2 icon-badge rounded-full mb-3"
+            >
+              <div class="bg-icon-bg-dark-purple p-2 icon-badge rounded-full">
+                <img src="./images/mail-icon.png" />
+              </div>
+            </div>
+            <p class="text-gray900 text-xl font-medium text-center mb-1">
+              Share team inboxes
+            </p>
+            <p class="text-nav-item font-normal text-center">
+              Whether you have a team of 2 or 200, our shared team inboxes keep
+              everyone on the same page and in the loop.
+            </p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div
+              class="bg-icon-bg-light-purple p-2 icon-badge rounded-full mb-3"
+            >
+              <div class="bg-icon-bg-dark-purple p-2 icon-badge rounded-full">
+                <img src="./images/Icon2.png" />
+              </div>
+            </div>
+            <p class="text-gray900 text-xl font-medium text-center mb-1">
+              Deliver instant answers
+            </p>
+            <p class="text-nav-item font-normal text-center">
+              An all-in-one customer service platform that helps you balance
+              everything your customers need to be happy.
+            </p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div
+              class="bg-icon-bg-light-purple p-2 icon-badge rounded-full mb-3"
+            >
+              <div class="bg-icon-bg-dark-purple p-2 icon-badge rounded-full">
+                <img src="./images/Icon3.png" />
+              </div>
+            </div>
+            <p class="text-gray900 text-xl font-medium text-center mb-1">
+              Manage your team with reports
+            </p>
+            <p class="text-nav-item font-normal text-center">
+              Measure what matters with Untitled’s easy-to-use reports. You can
+              filter, export, and drilldown on the data in a couple clicks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FEATURES SECTİON END -->
+
+    <!-- FAQ START -->
+    <div class="md:px-20 md:py-24 py-16 px-6">
+      <p class="text-4xl font-semibold text-gray900 text-center">
+        Frequently asked questions
+      </p>
+      <p class="text-center text-nav-item">
+        Everything you need to know about the product and billing.
+      </p>
+
+      <div class="flex justify-center">
+        <div class="accordion grid grid-cols-4 gap-4">
+          <div class="accordion-item col-start-1 col-end-5">
+            <div class="accordion-header flex justify-between">
+              <p class="font-medium text-lg text-gray900">
+                Is there a free trial available?
+              </p>
+              <div
+                class="rounded-full border-2 border-indigo-500/75 flex justify-center items-center w-6 h-6"
+              >
+                <span class="accordion-icon text-nav-item text-purple">+</span>
+              </div>
+            </div>
+            <div class="accordion-content">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div class="accordion-item col-start-1 col-end-5">
+            <div class="accordion-header flex justify-between">
+              <p class="font-medium text-lg text-gray900">
+                Can I change my plan later?
+              </p>
+              <div
+                class="rounded-full border-2 border-indigo-500/75 flex justify-center items-center w-6 h-6"
+              >
+                <span class="accordion-icon text-nav-item text-purple">+</span>
+              </div>
+            </div>
+            <div class="accordion-content">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div class="accordion-item col-start-1 col-end-5">
+            <div class="accordion-header flex justify-between">
+              <p class="font-medium text-lg text-gray900">
+                What is your cancellation policy?
+              </p>
+              <div
+                class="rounded-full border-2 border-indigo-500/75 flex justify-center items-center w-6 h-6"
+              >
+                <span class="accordion-icon text-nav-item text-purple">+</span>
+              </div>
+            </div>
+            <div class="accordion-content">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div class="accordion-item col-start-1 col-end-5">
+            <div class="accordion-header flex justify-between">
+              <p class="font-medium text-lg text-gray900">
+                Can other info be added to an invoice?
+              </p>
+              <div
+                class="rounded-full border-2 border-indigo-500/75 flex justify-center items-center w-6 h-6"
+              >
+                <span class="accordion-icon text-nav-item text-purple">+</span>
+              </div>
+            </div>
+            <div class="accordion-content">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div class="accordion-item col-start-1 col-end-5">
+            <div class="accordion-header flex justify-between">
+              <p class="font-medium text-lg text-gray900">
+                How does billing work?
+              </p>
+              <div
+                class="rounded-full border-2 border-indigo-500/75 flex justify-center items-center w-6 h-6"
+              >
+                <span class="accordion-icon text-nav-item text-purple">+</span>
+              </div>
+            </div>
+            <div class="accordion-content">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div class="accordion-item col-start-1 col-end-5">
+            <div class="accordion-header flex justify-between">
+              <p class="font-medium text-lg text-gray900">
+                How do I change my account email?
+              </p>
+              <div
+                class="rounded-full border-2 border-indigo-500/75 flex justify-center items-center w-6 h-6"
+              >
+                <span class="accordion-icon text-nav-item text-purple">+</span>
+              </div>
+            </div>
+            <div class="accordion-content">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FAQ END -->
+
+    <!-- CTA START -->
+    <div class="bg-gray50 sm:px-20 sm:py-24 py-24 px-6">
+      <p class="text-center font-medium text-gray900 text-4xl font-semibold">
+        Start your free trial
+      </p>
+      <p class="text-center text-nav-item">
+        Join over 4,000+ startups already growing with us.
+      </p>
+      <div class="sm:flex block justify-center mt-9">
+        <button
+          class="rounded-lg border-inherit border rounded-lg py-2.5 px-5 sm:mr-4 shadow-btn sm:mb-0 mb-3 w-full sm:w-auto h-12"
+        >
+          Learn more
+        </button>
+        <button
+        onclick="window.location.href='/contact.html'"
+        class="rounded-lg bg-[#7F56D9] text-white rounded-lg py-2.5 px-5 hover:no-underline  w-full sm:w-auto h-12"
+      >
+        Contact Us
+      </button>
+      </div> 
+      
+    </div>
+    <!-- CTA END -->
+
+    <!-- FOOTER START -->
+    <div class="py-12 sm:px-20 px-4 flex-none justify-between items-center lg:flex ">
+      <img src="./images/Logo.png" class="h-[26.32px] w-[128px]" />
+      <div
+        class="grid grid-cols-2 sm:grid-cols-6 gap-4 my-4 lg:text-center text-start"
+      >
+        <div>Home</div>
+        <div>About Us</div>
+        <div>Press</div>
+        <div>Careers</div>
+        <div>Help</div>
+        <div>Privacy</div>
+      </div>
+      <div>
+        <p class="text-nav-item mt-8"
+          >© 2023 PR Yazılım. All rights reserved.</p
+        >
+      </div>
+    </div>
+    <!-- FOOTER END -->
+    <script src="./app.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

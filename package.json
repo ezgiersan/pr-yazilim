@@ -1,0 +1,14 @@
+{
+  "name": "pr-yazilim",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./styles.css -o ./src/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
